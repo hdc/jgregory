@@ -1,12 +1,6 @@
 {#
  # Layout template
  # ---------------
- #
- # This template defines your site’s global layout. It can be
- # “extended” by other templates to fill in the gaps.
- #
- # See Twig’s Template Inheritance documentation for more details:
- # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
  #}
 
 <!DOCTYPE html>
@@ -15,35 +9,6 @@
 	<meta charset="utf-8" />
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
-
-	<style type="text/css">
-		body { margin: 50px; font-family: sans-serif; background: #fff; }
-		#container { margin: 0 auto; width: 700px;
-			-webkit-box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-			        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-		}
-
-		#header, #footer { display: block; color: #fff; background: #da5a47; }
-		#header a, #footer a { color: #fff; }
-		#header { border-radius: 7px 7px 0 0; padding: 25px; }
-		#header:after { content: '.'; display: block; height: 0; clear: both; visibility: hidden; }
-		#header a { text-decoration: none; }
-		#header h1 { float: left; margin: 0; font-weight: normal; font-size: 30px; line-height: 1; }
-		#header nav { display: block; float: right; }
-		#header nav ul { margin: 0; list-style-type: none; }
-		#header nav ul li { float: left; margin-left: 20px; }
-		#header nav ul li a { display: block; margin-top: 4px; line-height: 22px; }
-		#header nav ul li a:hover,
-		#header nav ul li a.active { border-bottom: 2px solid #fff; }
-		#header nav ul li a.active { cursor: default; }
-
-		#content { display: block; padding: 25px; background: #fff; }
-		#content h1 { margin-top: 0; font-size: 35px; font-weight: bold; }
-		#content a { color: #da5a47; text-decoration: none; }
-		#content a:hover { text-decoration: underline; }
-
-		#footer { border-radius: 0 0 7px 7px; padding: 15px; font-size: 12px; text-align: center; }
-	</style>
 </head>
 
 <body>
@@ -53,7 +18,11 @@
 
 			<nav>
 				<ul>
-					<li><a href="{{ url('news') }}" {% if craft.request.firstSegment == 'news' %}class="active"{% endif %}>News</a></li>
+					<li><a href="{{ siteUrl }}" {% if craft.request.firstSegment == '' %}class="active"{% endif %}>Home</a></li>
+                    <li><a href="{{ url('gallery') }}" {% if craft.request.firstSegment == 'gallery' %}class="active"{% endif %}>Gallery</a></li>
+                    <li><a href="{{ url('artist') }}" {% if craft.request.firstSegment == 'artist' %}class="active"{% endif %}>Artist</a></li>
+                    <li><a href="{{ url('notations') }}" {% if craft.request.firstSegment == 'notations' %}class="active"{% endif %}>Notations</a></li>
+                    <li><a href="{{ url('contact') }}" {% if craft.request.firstSegment == 'contact' %}class="active"{% endif %}>Contact Judith Olsen Gregory</a></li>
 				</ul>
 			</nav>
 		</header>

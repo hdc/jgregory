@@ -1,0 +1,44 @@
+{% extends "_layout" %}
+
+{% block content %}
+<article>
+    <h1>{{ entry.title }}</h1>
+    <p>{{ entry.description }}
+    {{ entry.series }}
+    {{ entry.materials }}
+    {{ entry.dimensions }}</p>
+
+
+    {% for block in entry.galleryImagesLeft %}
+        {% if block.type == "galleryImageLeft" %}
+
+            {% set image = block.image.first() %}
+            {% if image %}
+            <img src="{{ image.url }}" alt="{{ image.title }}">
+            {% endif %}
+
+            {% if block.caption %}
+            <p>{{ block.caption }}</p>
+            {% endif %}
+
+        {% endif %}
+    {% endfor %}
+
+    {% for block in entry.galleryImagesRight %}
+        {% if block.type == "galleryImageRight" %}
+
+            {% set image = block.image.first() %}
+            {% if image %}
+            <img src="{{ image.url }}" alt="{{ image.title }}">
+            {% endif %}
+
+            {% if block.caption %}
+            <p>{{ block.caption }}</p>
+            {% endif %}
+
+        {% endif %}
+    {% endfor %}
+
+
+</article>
+{% endblock %}
