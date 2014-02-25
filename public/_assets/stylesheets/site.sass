@@ -1,2 +1,24 @@
 @import compass
 @import compass/reset
+
+// Base Imports
+
+@import _base/colors
+@import _base/type
+
+// General Imports
+
+@import _general/extends
+
+
+// Root styles
+
++establish-baseline
+
+html
+	@extend %text-base
+	background: $body-background
+	color: $primary-text
+	font-family: $base-font-family
+
+

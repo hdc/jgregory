@@ -1,0 +1,25 @@
+$body-background: #fff7dc
+$primary-text: #949274
+$head-color: #444
+
+$link-color: #f1a900
+$link-hover: darken($link-color,10%)
+
+$border-color: $primary-text
+
+$link: '&:link, &:visited'
+$focus: '&:hover, &:focus, &:active'
+
+
+// Type — headings
+
+#{headings(4)}
+	color: $head-color
+
+a
+	#{$link}
+		color: $link-color
+		text-decoration: none
+
+	#{$focus}
+		color: $link-hover
