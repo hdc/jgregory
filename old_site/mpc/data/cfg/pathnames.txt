@@ -1,0 +1,17 @@
+$$SYSTEM=../..
+$$PRIVATE=/u/web/judygr/mpc/data
+$$COMMONDOCS=/u/httpd/cgi-docs/Mercantec/PC_F_6.6.1
+$$CFG=/u/web/judygr/mpc/data/cfg
+$$USR=..
+$$PRIVATEHTDOCS=/u/web/judygr/mpc/docs
+$$CGIBIN=/u/web/judygr/cgi-local/mpc
+$$SCRIPT=/u/web/judygr/mpc/data/scripts
+$$SESSION=/u/web/judygr/mpc/data/session
+$$DATA=/u/web/judygr/mpc/data/data
+$$DB=/u/web/judygr/mpc/data/data
+$$WATSITE=/u/web/judygr/mpc/data/SiteMgr
+$$WATSITEPUBLIC=/u/web/judygr/mpc/docs/SiteMgr
+$$CONFIGFILE=/u/web/judygr/mpc/data/cfg/DataAPI.cfg
+$$PUBLISHROOT=/u/web/judygr/mpc/docs/Site
+$$SITEPRIVATEHTDOCS=/u/web/judygr/mpc/docs
+$$DEFAULTDOC=/u/web/judygr/

@@ -39,6 +39,21 @@
         {% endif %}
     {% endfor %}
 
+    {% set params = {
+    section: 'Gallery'
+    } %}
+
+    {% set prevCocktail = entry.getPrev(params) %}
+    {% set nextCocktail = entry.getNext(params) %}
+
+    {% if prevCocktail %}
+    <p>Previous: <a href="{{ prevCocktail.url }}">{{ prevCocktail.title }}</a></p>
+    {% endif %}
+
+    {% if nextCocktail %}
+    <p>Next: <a href="{{ nextCocktail.url }}">{{ nextCocktail.title }}</a></p>
+    {% endif %}
+
 
 </article>
 {% endblock %}

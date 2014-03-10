@@ -1,0 +1,2 @@
+Global=/u/web/judygr/mpc/data/cfg/Global.txt
+judygr=/u/web/judygr/mpc/data/cfg/pathnames.txt

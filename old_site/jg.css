@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+td{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #660000;
+	font-size: 12px;
+}
+.med{
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color: #660000;
+	font-size: 14px;
+}

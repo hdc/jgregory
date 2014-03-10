@@ -1,0 +1,7 @@
+[Mon Mar 10 04:21:50 2014] [error] [client 203.142.24.116] File does not exist: /u/autobahn/apps_web/phpMyAdmin/setup/index.php.
+[Mon Mar 10 05:43:25 2014] [error] [client 203.69.207.192] File does not exist: /u/web/judygr/phpTest/zologize/axa.php.
+[Mon Mar 10 05:43:26 2014] [error] [client 203.69.207.192] File does not exist: /u/web/judygr/pma/scripts/setup.php.
+[Mon Mar 10 05:43:27 2014] [error] [client 203.69.207.192] File does not exist: /u/web/judygr/myadmin/scripts/setup.php.
+[Mon Mar 10 07:51:19 2014] [error] [client 50.63.178.49] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /w00tw00t.at.ISC.SANS.DFind:).
+[Mon Mar 10 10:07:19 2014] [error] [client 74.218.166.69] File does not exist: /u/web/judygr/favicon.ico.
+[Mon Mar 10 10:39:11 2014] [error] [client 74.218.166.69] script not found or unable to stat: /u/httpd/cgi-bin/login-handler.
