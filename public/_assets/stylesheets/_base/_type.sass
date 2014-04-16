@@ -2,12 +2,12 @@
 $base-font-size: 16px
 
 // Base line height
-$base-line-height: 24px
+$base-line-height: 20px
 
 // Rhythm unit (Compass vertical rhythm)
 $rhythm-unit: rem
 
-$base-font-family: 'Droid Sans','Helvetica Neue', Helvetica, Arial, sans-serif
+$base-font-family: 'Pontano Sans','Helvetica Neue', Helvetica, Arial, sans-serif
 $base-font-weight: normal
 
 // Font size increments based of modular scale perfect fourths
@@ -23,6 +23,7 @@ $large-font-size: 21px
 $xlarge-font-size: 24px
 $xxlarge-font-size: 28px
 $xxxlarge-font-size: 32px
+$super-font-size: 68px
 
 $round-to-nearest-half-line: true
 
@@ -51,6 +52,9 @@ $round-to-nearest-half-line: true
 
 	@if $size == "xxxlarge"
 		@include adjust-font-size-to($xxxlarge-font-size)
+
+	@if $size == "super"
+		@include adjust-font-size-to($super-font-size)
 
 
 // type weights
@@ -87,6 +91,9 @@ $round-to-nearest-half-line: true
 %text-xxxlarge
 	+typeSize(xxxlarge)
 
+%text-super
+	+typeSize(super)
+
 
 // Type — headings
 
@@ -104,4 +111,14 @@ h3
 
 h4
 	@extend %text-small
+
+
+
+p
+	+trailer(.5)
+
+strong
+	@extend %text-strong
+
+
 

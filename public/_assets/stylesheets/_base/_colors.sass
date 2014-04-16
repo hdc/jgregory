@@ -18,8 +18,22 @@ $focus: '&:hover, &:focus, &:active'
 
 a
 	#{$link}
+		@extend %transition-color
 		color: $link-color
 		text-decoration: none
 
 	#{$focus}
 		color: $link-hover
+
+//Main Nav colors
+.nav_item-block
+	#{$link}
+		color: $primary-text
+		text-decoration: none
+
+	#{$focus}
+		color: $link-color
+
+	&.active
+		color: $link-color
+

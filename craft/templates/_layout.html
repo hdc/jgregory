@@ -4,14 +4,19 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
-	<meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
     <link rel="stylesheet" type="text/css" href="/_assets/css/site.css" />
+    <link rel="canonical" href="{{ entry.url }}">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="icon" href="" type="image/x-icon">
 
     <script type="text/javascript">
         WebFontConfig = {
-            google: { families: [ 'Droid+Sans:400,700:latin' ] }
+            google: { families: [ 'Pontano+Sans::latin' ] }
         };
         (function() {
             var wf = document.createElement('script');
@@ -22,34 +27,37 @@
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wf, s);
         })(); </script>
+
 </head>
 
-<body>
-	<div id="container">
-		<header id="header">
-			<h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
+<body {% if craft.request.firstSegment == '' %}class="home"{%endif %}>
+    <div class="page-wrap">
+        <span class="art"></span>
+    </div>
+        <div class="container">
+            <header id="header">
+                <nav class="nav">
+                    <ul class="nav_container">
+                        <li class="nav_item"><a class="nav_item-block {% if craft.request.firstSegment == '' %}active{% endif %}" href="{{ siteUrl }}">Home</a></li>
+                        <li class="nav_item"><a class="nav_item-block {% if craft.request.firstSegment == 'gallery' %}active{% endif %}" href="{{ url('gallery') }}">Gallery</a></li>
+                        <li class="nav_item"><a class="nav_item-block {% if craft.request.firstSegment == 'artist' %}active{% endif %}" href="{{ url('artist') }}">Artist</a></li>
+                        <li class="nav_item"><a class="nav_item-block {% if craft.request.firstSegment == 'notations' %}active{% endif %}" href="{{ url('notations') }}" >Notations</a></li>
+                        <li class="nav_item last"><a class="nav_item-block {% if craft.request.firstSegment == 'contact' %}active{% endif %}" href="{{ url('contact') }}">Contact Judith Olsen Gregory</a></li>
+                    </ul>
+                </nav>
+                <h1 class="site-name"><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
+            </header>
 
-			<nav>
-				<ul>
-					<li><a href="{{ siteUrl }}" {% if craft.request.firstSegment == '' %}class="active"{% endif %}>Home</a></li>
-                    <li><a href="{{ url('gallery') }}" {% if craft.request.firstSegment == 'gallery' %}class="active"{% endif %}>Gallery</a></li>
-                    <li><a href="{{ url('artist') }}" {% if craft.request.firstSegment == 'artist' %}class="active"{% endif %}>Artist</a></li>
-                    <li><a href="{{ url('notations') }}" {% if craft.request.firstSegment == 'notations' %}class="active"{% endif %}>Notations</a></li>
-                    <li><a href="{{ url('contact') }}" {% if craft.request.firstSegment == 'contact' %}class="active"{% endif %}>Contact Judith Olsen Gregory</a></li>
-				</ul>
-			</nav>
-		</header>
+            <main class="content" role="main">
+                {% block content %}
+                    <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+                    <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+                {% endblock %}
+            </main>
 
-		<main id="content" role="main">
-			{% block content %}
-				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
-			{% endblock %}
-		</main>
-
-		<footer id="footer">
-			Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://buildwithcraft.com">Craft</a>
-		</footer>
-	</div>
+            <footer id="footer">
+                Copyright {{ now.year }} {{ craft.request.serverName | ucfirst }}. All rights reserved  •  Built with <a href="http://buildwithcraft.com">Craft</a>
+            </footer>
+        </div>
 </body>
 </html>

@@ -70,19 +70,32 @@
 %text-center
 	text-align: center
 
+%text-left
+	text-align: left
+
+%text-right
+	text-align: right
+
 %text-caps
 	text-transform: uppercase
 
 // Transitions
 // =====================
 %transition-all
-	+transition(all .3s ease)
+	+transition(all .3s ease-in-out)
 
 %transition-color
-	+transition(color .3s ease)
+	+transition(color .2s ease-in-out)
 
 %transition-background
-	+transition(background .3s ease)
+	+transition(background .3s ease-in-out)
 
 %transition-border
-	+transition(border .3s ease)
+	+transition(border .3s ease-in-out)
+
+
+%img-full
+	img
+		max-width: 100%
+		width: 100%
+		height: auto

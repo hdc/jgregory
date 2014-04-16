@@ -2,42 +2,56 @@
 
 {% block content %}
 <article>
-    <h1>{{ entry.title }}</h1>
-    <p>{{ entry.description }}
-    {{ entry.series }}
-    {{ entry.materials }}
-    {{ entry.dimensions }}</p>
+    <div class="grid_item">
+        <div class="content-block">
+            <h2>{{ entry.title | lower }}</h2>
+            <ul class="work_meta">
+                <li class="work_meta-item">{{ entry.series }}</li>
+                <li class="work_meta-item">{{ entry.materials }}</li>
+                <li class="work_meta-item">{{ entry.dimensions }}</li>
+            </ul>
+            <div class="work_description">
+                {{ entry.description | raw }}
+            </div>
+        </div>
+    </div>
 
+    <div class="grid_item">
+        <div class="img-block">
+            {% for block in entry.galleryImagesLeft %}
+                {% if block.type == "galleryImageLeft" %}
+                    {% set image = block.image.first() %}
+                        {% if image %}
+                        <div class="img-block_item">
+                            <img src="{{ image.url }}" alt="{{ image.title }}">
+                            {% if block.caption %}
+                            <p>{{ block.caption }}</p>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 
-    {% for block in entry.galleryImagesLeft %}
-        {% if block.type == "galleryImageLeft" %}
-
+    <div class="grid_item">
+        <div class="img-block">
+            {% for block in entry.galleryImagesRight %}
+            {% if block.type == "galleryImageRight" %}
             {% set image = block.image.first() %}
             {% if image %}
-            <img src="{{ image.url }}" alt="{{ image.title }}">
+            <div class="img-block_item">
+                <img src="{{ image.url }}" alt="{{ image.title }}">
+                {% if block.caption %}
+                <p>{{ block.caption }}</p>
+                {% endif %}
+            </div>
             {% endif %}
-
-            {% if block.caption %}
-            <p>{{ block.caption }}</p>
             {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 
-        {% endif %}
-    {% endfor %}
-
-    {% for block in entry.galleryImagesRight %}
-        {% if block.type == "galleryImageRight" %}
-
-            {% set image = block.image.first() %}
-            {% if image %}
-            <img src="{{ image.url }}" alt="{{ image.title }}">
-            {% endif %}
-
-            {% if block.caption %}
-            <p>{{ block.caption }}</p>
-            {% endif %}
-
-        {% endif %}
-    {% endfor %}
 
     {% set params = {
     section: 'Gallery'
